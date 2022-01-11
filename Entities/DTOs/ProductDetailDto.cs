@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Concrete.DTOs
+namespace Entities.DTOs
 {
-    public class ProductDetailDto:IDto
+    public class ProductDetailDto : IDto
     {
         public int ProductId { get; set; }
 

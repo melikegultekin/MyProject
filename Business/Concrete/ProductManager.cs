@@ -9,7 +9,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using Entities.Concrete.DTOs;
+using Entities.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
