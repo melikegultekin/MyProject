@@ -32,8 +32,7 @@ namespace Business.Concrete
 
         }
         //Claim 
-        [SecuredOperation("product.add")]
-        
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]    
         public IResult Add(Product product)
         {
@@ -51,10 +50,9 @@ namespace Business.Concrete
 
         }
 
+        [CacheAspect] //key,value
         public IDataResult<List<Product>> GetAll()
         {
-            //İş Kodları
-            //Yetkisi var mı? 
             if (DateTime.Now.Hour == 1)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
