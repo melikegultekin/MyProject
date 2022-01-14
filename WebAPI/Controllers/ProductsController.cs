@@ -13,7 +13,8 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController:ControllerBase
+
+    public class ProductsController : ControllerBase
     {
         //loosely coupled
         //naming convention
@@ -42,7 +43,7 @@ namespace WebAPI.Controllers
 
         [HttpGet("getbyid")]
 
-        public IActionResult Get(int id)
+        public IActionResult GetById(int id)
         {
             var result = _productService.GetById(id);
             if(result.Success)
@@ -55,7 +56,7 @@ namespace WebAPI.Controllers
 
         [HttpPost("add")]
 
-        public IActionResult Post(Product product)
+        public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
             if(result.Success)
