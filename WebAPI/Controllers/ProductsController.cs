@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -32,6 +33,8 @@ namespace WebAPI.Controllers
             //Swagger
             //Dependecy chain --
 
+            Thread.Sleep(millisecondsTimeout:5000);
+
             var result = _productService.GetAll();
             if(result.Success)
             {
@@ -41,7 +44,7 @@ namespace WebAPI.Controllers
 
         }
 
-        [HttpGet("getbyid")]
+        [HttpGet(template:"getbyid")]
 
         public IActionResult GetById(int id)
         {
