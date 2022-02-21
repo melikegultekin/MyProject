@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
             //Swagger
             //Dependecy chain --
 
-            Thread.Sleep(millisecondsTimeout:5000);
+            Thread.Sleep(3000);
 
             var result = _productService.GetAll();
             if(result.Success)
@@ -50,6 +50,32 @@ namespace WebAPI.Controllers
         {
             var result = _productService.GetById(id);
             if(result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet(template: "getbycategory")]
+
+        public IActionResult GetByCategory(int categoryId)
+        {
+            var result = _productService.GetAllByCategoryId(categoryId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet(template: "getproductdetails")]
+
+        public IActionResult GetProductDetails(int categoryId)
+        {
+            var result = _productService.GetProductDetails();
+            if (result.Success)
             {
                 return Ok(result);
             }
